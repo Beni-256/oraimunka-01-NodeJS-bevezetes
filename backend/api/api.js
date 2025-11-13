@@ -40,5 +40,41 @@ router.get('/testsql', async (request, response) => {
         });
     }
 });
+//?/api/names => Visszaad egy név listát
+let names = ['Badó M. János', 'Pető G. Pici', 'Kakas Z. Kaki']; //?Top-Level Code => Az alkalmazás elindításánál már létrejön a tömb és az egész futás alatt létezik.
+router.get('/names', (request, response) => {
+    response.status(200).json({
+        success: 'true',
+        results: names
+    }); //?Adunk egy választ a kérésre, 200-as státuszkóddal (OK) => JSON lesz a válasz, ami tartalmaz két kulcsot, amiből az egyik kulcs adja vissza értékként a tömb tartalmát.
+});
+//?/api/names => POST => Frissíti a listát egy újonnan érkező értékkel
+router.post('/names', (request, response) => {
+    //? console.log(request); => A szerver irányába érkező teljes kérés. Számunkra elsősorban ebből kettő lesz a fontos: head, body
+    const body = request.body;
+    //? Egy json object-et várunk, ami rendelkezik egy name kulccsal
+    const name = body.name;
+    names.push(name);
+    console.log(names);
+    response.status(200).json({
+        success: 'true',
+        results: names
+    });
+});
+//?PARAMÉTER MEGADÁSA
+router.get('/derekszoge/:a/:b/:c', (request, response) => {
+    const a = parseFloat(request.params.a); //?Paraméter meghatározás :valami => request.params.valami
+    const b = parseFloat(request.params.b);
+    const c = parseFloat(request.params.c);
 
+    if (a * a + b * b === c * c) {
+        response.status(200).json({
+            message: 'A háromszög derékszögű!'
+        });
+    } else {
+        response.status(200).json({
+            message: 'A háromszög nem derékszögű!'
+        });
+    }
+});
 module.exports = router;

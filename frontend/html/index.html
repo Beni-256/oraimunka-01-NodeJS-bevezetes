@@ -15,9 +15,19 @@
         <script src="../javascript/index.js"></script>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row text-center">
-                <h1 class="display-1">A szerver fut.</h1>
+                <h1 class="display-1">Nevek:</h1>
+            </div>
+            <div class="row">
+                <ul id="forNames"></ul>
+            </div>
+            <div class="row">
+                <form>
+                    <label for="namePost">Név: </label>
+                    <input type="text" id="namePost" />
+                    <input type="button" value="Hozzáadás" id="nameAddBtn" />
+                </form>
             </div>
         </div>
     </body>

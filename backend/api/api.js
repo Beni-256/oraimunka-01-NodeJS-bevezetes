@@ -50,7 +50,7 @@ router.get('/names', (request, response) => {
 });
 //?/api/names => POST => Frissíti a listát egy újonnan érkező értékkel
 router.post('/names', (request, response) => {
-    //? console.log(request); => A szerver irányába érkező teljes kérés. Számunkra elsősorban ebből kettő lesz a fontos: head, body
+    //? console.log(request); //? => A szerver irányába érkező teljes kérés. Számunkra elsősorban ebből kettő lesz a fontos: head, body
     const body = request.body;
     //? Egy json object-et várunk, ami rendelkezik egy name kulccsal
     const name = body.name;

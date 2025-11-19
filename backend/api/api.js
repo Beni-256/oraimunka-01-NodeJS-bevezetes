@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 //!Endpoints:
 //?GET /api/test
 router.get('/test', (request, response) => {
@@ -40,6 +40,7 @@ router.get('/testsql', async (request, response) => {
         });
     }
 });
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //?/api/names => Visszaad egy név listát
 let names = ['Badó M. János', 'Pető G. Pici', 'Kakas Z. Kaki']; //?Top-Level Code => Az alkalmazás elindításánál már létrejön a tömb és az egész futás alatt létezik.
 router.get('/names', (request, response) => {
